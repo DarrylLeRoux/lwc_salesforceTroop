@@ -17,7 +17,7 @@ export default class ConditionalRendering extends LightningElement {
   // if this method = true, then the if:true{} will render
   // It takes in the handleOnChange as the input, and then evaluates it to the helloMethod to check
   get helloMethod() {
-    return this.name == "hello";
+    return this.name === "hello";
   }
 
   // falsy values will render false with if:true{}
