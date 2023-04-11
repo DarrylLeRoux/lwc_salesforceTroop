@@ -1,7 +1,7 @@
 <template>
   <lightning-card title="Quiz App in LWC">
     <div class="slds-m-around_medium">
-      <form action="">
+      <form>
         <template for:each={myQuestions} for:item="quiz">
           <div key={quiz.id} class="slds-m-bottom_medium">
             <div class="slds-m-bottom_medium">
@@ -54,6 +54,12 @@
           onclick={resetHandler}
         ></lightning-button>
       </form>
+
+      <template if:true={isSubmitted}>
+        <div class={fullScore}>
+          You have Scored {correctAnswers} out of {myQuestions.length}
+        </div>
+      </template>
     </div>
   </lightning-card>
 </template>

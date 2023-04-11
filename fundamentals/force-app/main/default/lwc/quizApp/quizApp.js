@@ -2,7 +2,12 @@ import { LightningElement } from "lwc";
 
 export default class QuizApp extends LightningElement {
   // store the answers
-  selected = {};
+  selected = {}; // store answers
+
+  correctAnswers = 0; // set a default
+
+  isSubmitted = false; // use to show the result
+
   myQuestions = [
     {
       id: "Question1",
@@ -37,19 +42,37 @@ export default class QuizApp extends LightningElement {
     }
   ];
 
+  // disable the button if not all answers are selected
   get notAllSelected() {
     // if there are not enough keys in the selected object then it is disabled
     return !(Object.keys(this.selected).length === this.myQuestions.length);
   }
-
+  // apply styling classes according to score
+  get fullScore() {
+    return `slds-m-around_medium slds-text-heading_large ${
+      this.myQuestions.length === this.correctAnswers
+        ? `slds-text-color_success`
+        : `slds-text-color_error`
+    }`;
+  }
+  // changeHandler gets called on every click on the options
   changeHandler(event) {
-    console.log("name", event.target.name);
-    console.log("value", event.target.value);
     const { name, value } = event.target;
     this.selected = { ...this.selected, [name]: value };
   }
-
-  submitHandler(event) {}
-
-  resethandler(event) {}
+  // submit the form
+  submitHandler(event) {
+    event.preventDefault();
+    let correct = this.myQuestions.filter(
+      (item) => this.selected[item.id] === item.correctAnswer
+    );
+    this.correctAnswers = correct.length;
+    this.isSubmitted = true;
+  }
+  // reset the form
+  resetHandler() {
+    this.selected = {};
+    this.correctAnswers = 0;
+    this.isSubmitted = false;
+  }
 }
