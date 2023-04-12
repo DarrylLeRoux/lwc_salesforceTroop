@@ -20,6 +20,7 @@ export default class QuerySelector extends LightningElement {
     // lwc:dom="manual" is required for this to work
     const childElem = this.template.querySelector(".child");
     // set the innerHTML of the child element
+    // eslint-disable-next-line @lwc/lwc/no-inner-html
     childElem.innerHTML = `<p>Child Element</p>`;
   }
 }

@@ -1,0 +1,19 @@
+<template>
+  <lightning-card title="Dynamic Styling">
+    <div class="slds-m-around_medium">
+      <lightning-input
+        type="number"
+        label="Percentage"
+        onchange={handleOnChange}
+      >
+      </lightning-input>
+      <div
+        style={percentage}
+        class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error"
+        role="alert"
+      >
+        This is an Alert Example
+      </div>
+    </div>
+  </lightning-card>
+</template>
