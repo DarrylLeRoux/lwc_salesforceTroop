@@ -1,6 +1,7 @@
 import { LightningElement } from "lwc";
 
 export default class LifeCycleParent extends LightningElement {
+  showChild = false;
   // fires when a component is added to the DOM
   // don't add attributes to the host element in the constructor
   constructor() {
@@ -22,10 +23,14 @@ export default class LifeCycleParent extends LightningElement {
     console.log("Parent Rendered Callback Called");
   }
 
-  // initialize name property
-  name;
-  // this will call renderedCallback() method for each change
-  changeHandler(event) {
-    this.name = event.target.value;
+  handleOnClick() {
+    this.showChild = !this.showChild;
+  }
+
+  // catch error from child component
+  errorCallback(error, stack) {
+    console.log("Error in child component");
+    console.log(error.message);
+    console.log(stack);
   }
 }

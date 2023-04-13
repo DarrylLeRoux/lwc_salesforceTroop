@@ -13,6 +13,9 @@ export default class LifeCycleChild extends LightningElement {
   // don't use to change state or update property of a component - use getters and setters
   connectedCallback() {
     console.log("Child Connected Callback Called");
+
+    // throw an error to test error handling
+    throw new Error("Loading of child component failed");
   }
 
   // fires when a components rendering is done
@@ -20,5 +23,11 @@ export default class LifeCycleChild extends LightningElement {
   // don't update a wire adapter configuration property
   renderedCallback() {
     console.log("Child Rendered Callback Called");
+  }
+
+  // fires when a component is removed from the DOM
+  disconnectedCallback() {
+    // eslint-disable-next-line no-alert
+    alert("Child disconnectedCallback called");
   }
 }
