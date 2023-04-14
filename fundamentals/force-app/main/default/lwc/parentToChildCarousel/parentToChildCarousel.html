@@ -1,0 +1,18 @@
+<template>
+  <lightning-card
+    title="Parent to child with non-primitive data"
+    class="slds-m-around_medium"
+  >
+    <lightning-carousel>
+      <template for:each={carouselDetails} for:item="carousel">
+        <lightning-carousel-image
+          key={carousel.header}
+          src={carousel.src}
+          header={carousel.header}
+          description={carousel.description}
+        >
+        </lightning-carousel-image>
+      </template>
+    </lightning-carousel>
+  </lightning-card>
+</template>
