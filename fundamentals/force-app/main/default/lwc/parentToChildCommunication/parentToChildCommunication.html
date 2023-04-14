@@ -1,11 +1,28 @@
 <template>
+  <!-- communication with primitive data  -->
   <c-parent-to-child-alert-communication
     message="Data has been
   communicated"
     card-heading="Parent to Child Communication"
   ></c-parent-to-child-alert-communication>
   <div class="slds-m-bottom_medium"></div>
+  <!-- communication with complex data  -->
   <c-parent-to-child-carousel
     carousel-details={carouselData}
   ></c-parent-to-child-carousel>
+  <!-- communication with events  -->
+  <div class="slds-m-bottom_medium"></div>
+  <lightning-card title="Parent to child communication on action">
+    <div class="slds-m-around_medium">
+      <lightning-input
+        type="number"
+        label="Enter Percentage"
+        onkeyup={handleChange}
+        value={percentage}
+      ></lightning-input>
+      <c-parent-to-child-progress
+        percentage={percentage}
+      ></c-parent-to-child-progress>
+    </div>
+  </lightning-card>
 </template>

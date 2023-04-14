@@ -18,4 +18,10 @@ export default class ParentToChildCommunication extends LightningElement {
       description: "Third card description."
     }
   ];
+
+  percentage = 10;
+
+  handleChange(event) {
+    this.percentage = event.target.value;
+  }
 }
