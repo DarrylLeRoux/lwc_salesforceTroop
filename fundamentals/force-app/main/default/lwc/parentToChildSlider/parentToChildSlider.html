@@ -1,0 +1,12 @@
+<template>
+  <lightning-card title="Parent to child communication slider">
+    <div class="slds-m-around_medium">
+      <lightning-slider
+        label="Volume"
+        value={val}
+        onchange={changeHandler}
+      ></lightning-slider>
+      <button onclick={resetSlider}>Reset Slider</button>
+    </div>
+  </lightning-card>
+</template>

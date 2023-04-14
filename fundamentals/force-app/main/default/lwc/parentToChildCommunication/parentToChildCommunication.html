@@ -12,6 +12,7 @@
   ></c-parent-to-child-carousel>
   <!-- communication with events  -->
   <div class="slds-m-bottom_medium"></div>
+  <!-- parent to child on action  -->
   <lightning-card title="Parent to child communication on action">
     <div class="slds-m-around_medium">
       <lightning-input
@@ -21,8 +22,10 @@
         value={percentage}
       ></lightning-input>
       <c-parent-to-child-progress
-        percentage={percentage}
+        progress-value={percentage}
       ></c-parent-to-child-progress>
     </div>
+    <!-- calling child to parent  -->
+    <c-parent-to-child-slider></c-parent-to-child-slider>
   </lightning-card>
 </template>

@@ -24,4 +24,8 @@ export default class ParentToChildCommunication extends LightningElement {
   handleChange(event) {
     this.percentage = event.target.value;
   }
+
+  handleClick() {
+    this.template.querySelector("c-parent-to-child-slider").resetSlider();
+  }
 }
